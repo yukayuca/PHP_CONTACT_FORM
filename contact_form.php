@@ -19,8 +19,21 @@
     <title>お問い合わせフォーム</title>
 </head>
 <body>
-
-
+    <?php if( $mode == 'input'  ){ ?>
+        <!--　入力画面-->
+    <?php 
+        if( $errmessage ){
+        echo '<div style="color:red;">';
+        echo implode('<br>', $errmessage );
+        echo '</div>'; 
+        }
+    ?>
+    <form action="./contactform.php" method="post">
+        名前<input type="text" name="fullname" value="">
+        Eメール<input type="email" name="email" value="">
+        本文<textarea name="message" id="" cols="" rows=""></textarea>
+        <input type="submit" name="confirm" value="確認" class="button">
+    </form>
 </body>
 </html>
 
